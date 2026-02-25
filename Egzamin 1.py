@@ -15,6 +15,7 @@ if liczba % 2 == 0:
 else:
     print("Liczba jest nieparzysta")
 
+
 # Napisz pętlę która wyświetla liczby od 1 do 10
 #  i przy każdej pisze czy jest parzysta czy nieparzysta.
 for i in range(1, 11):
@@ -22,5 +23,7 @@ for i in range(1, 11):
         print(i, "jest parzysta")
     else:
         print(i, "jest nieparzysta")
+        print(i, "jest nieparzysta")
+
 
 
