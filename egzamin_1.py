@@ -1,11 +1,13 @@
-# Stwórz zmienne z Twoim imieniem, wiekiem i miastem, a następnie wyświetl zdanie:
+# Stwórz zmienne z Twoim imieniem, wiekiem i miastem,
+# a następnie wyświetl zdanie:
 # "Moje imię to [imię], mam [wiek] lat i mieszkam w [miasto]."
 imie = "Mirek"
 wiek = 77
 miasto = "Łódź"
 print("Moje imię to", imie, "mam", wiek, "lat", "i mieszkam w", miasto)
 
-# Napisz program który sprawdza czy wpisana liczba jest parzysta czy nieparzysta.
+# Napisz program który sprawdza czy wpisana liczba
+# jest parzysta czy nieparzysta.
 # (Podpowiedź: użyj operatora % który zwraca resztę z dzielenia
 #  – jeśli liczba % 2 == 0 to liczba jest parzysta)
 
@@ -24,6 +26,3 @@ for i in range(1, 11):
     else:
         print(i, "jest nieparzysta")
         print(i, "jest nieparzysta")
-
-
-
