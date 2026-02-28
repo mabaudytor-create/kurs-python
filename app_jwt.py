@@ -53,7 +53,6 @@ def publiczny():
 if __name__ == "__main__":
     app.run(debug=True)
 # Testowanie JWT w test_jwt.py:python
-
 import requests
 
 BASE_URL = "http://127.0.0.1:5000"
