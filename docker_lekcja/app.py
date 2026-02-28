@@ -1,20 +1,17 @@
-from flask import Flask, jsonify
+from fastapi import FastAPI
 
-app = Flask(__name__)
+app = FastAPI(title="FastAPI Example")
 
+# Przykładowy endpoint główny
+@app.get("/")
+def read_root():
+    return {"message": "Hello World"}
 
-@app.route("/")
-def index():
-    return jsonify({
-        "wiadomosc": "Witaj z kontenera Docker!",
-        "status": "dziala"
-    })
-
-
-@app.route("/zdrowie")
-def zdrowie():
-    return jsonify({"status": "ok"})
-
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+# Przykładowy endpoint użytkownika
+@app.get("/user/{user_id}")
+def read_user(user_id: int):
+    return {
+        "id": user_id,
+        "name": f"User {user_id}",
+        "email": f"user{user_id}@example.com"
+    }
