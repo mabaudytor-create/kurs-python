@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    command: redis-server --protected-mode no
+    restart: unless-stopped
+
+  api:
+    build: .
+    container_name: fastapi_api
+    environment:
+      SQL_SERVER: "host.docker.internal"
+      SQL_PORT:   "1434"
+      SQL_INSTANCE_NAME: "SQLEXPRESS2022" # Upewnij się, że to tutaj jest!
+      SQL_DB:     "KursPython"
+      SQL_USER:   "app_user"
+      SQL_PASS:   "MAB@mab1707"
+      REDIS_HOST: "redis"
+      REDIS_PORT: "6379"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+    restart: unless-stopped
