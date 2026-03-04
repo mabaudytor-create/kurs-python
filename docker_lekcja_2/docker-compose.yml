@@ -1,17 +1,4 @@
-version: "3.9"
-
 services:
-  sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: sqlserver
-    environment:
-      SA_PASSWORD: "YourStrong@Passw0rd"
-      ACCEPT_EULA: "Y"
-    ports:
-      - "1433:1433"
-    volumes:
-      - sqlserver_data:/var/opt/mssql
-
   redis:
     image: redis:latest
     container_name: redis
@@ -22,18 +9,14 @@ services:
     build: .
     container_name: fastapi_api
     environment:
-      SQL_SERVER: "sqlserver"
-      SQL_DB: "Sklep"
-      SQL_USER: "sa"
-      SQL_PASS: "YourStrong@Passw0rd"
-      REDIS_HOST: "redis"
-      REDIS_PORT: 6379
+      SQL_SERVER:      "host.docker.internal"
+      SQL_PORT:        "1433"
+      SQL_DB:          "KursPython"
+      SQL_USER:        "sa"
+      SQL_PASS:        "TwojeAktualneHasloSa"          # ← ZMIEŃ NA PRAWDZIWE HASŁO
+      REDIS_HOST:      "redis"
+      REDIS_PORT:      "6379"
     ports:
       - "8000:8000"
     depends_on:
-      - sqlserver
       - redis
-
-volumes:
-  sqlserver_data:
-
